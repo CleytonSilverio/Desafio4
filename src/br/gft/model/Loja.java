@@ -22,28 +22,37 @@ public class Loja {
 		this.cnpj = cnpj;
 	}
 	
+	public void calculoimp(List<VideoGame> games, List<Livro> livros) {
+		int i;
+		int n = livros.size();
+		for(i=0;i<n;i++) {
+			livros.get(i).calculoImposto();
+		}
+		n = games.size();
+		for(i=0;i<n;i++) {
+			games.get(i).calculoImposto();
+		}
+	}
+	
 	public void listarLivros(ArrayList<Livro> livros) {
 		int i;
 		int n = livros.size();
+		
 		System.out.println("-------------------------------------------------------------");
 		for(i=0;i<n;i++) {
 			System.out.println(livros.get(i));
-		}
-		for(i=0;i<n;i++) {
-			livros.get(i).calculoImposto();
 		}
 	}
 	
 	public void listarVideoGames(ArrayList<VideoGame> games) {
 		int k;
 		int m = games.size();
+		
 		System.out.println("-------------------------------------------------------------");
 		for(k=0;k<m;k++) {
 			System.out.println(games.get(k));
 		}
-		for(k=0;k<m;k++) {
-			games.get(k).calculoImposto();
-		}
+		
 	}
 	
 	public void calculoPatrimonio(List<VideoGame> games, List<Livro> livros, Loja lj) {

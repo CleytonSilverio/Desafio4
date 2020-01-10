@@ -69,6 +69,8 @@ public class Principal {
 		Loja lj = new Loja();
 		lj.setNome("Americanas");
 		lj.setCnpj("123456789");
+		
+		new Loja().calculoimp(games, livros);
 	
 		new Loja().listarVideoGames(games);
 		
