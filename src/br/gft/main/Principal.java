@@ -3,6 +3,7 @@ package br.gft.main;
 import java.util.ArrayList;
 
 import br.gft.model.Livro;
+import br.gft.model.Loja;
 import br.gft.model.VideoGame;
 
 public class Principal {
@@ -64,33 +65,16 @@ public class Principal {
 		games.add(vg);
 		games.add(vg2);
 		games.add(vg3);
+
+		Loja lj = new Loja();
+		lj.setNome("Americanas");
+		lj.setCnpj("123456789");
+	
+		new Loja().listarVideoGames(games);
 		
-		int k;
-		int m = games.size();
-		double patrimonio;
-		patrimonio = (l1.getPreco()*l1.getQuantidade())+(l2.getPreco()*l2.getQuantidade())+(l3.getPreco()*l3.getQuantidade())+(vg.getPreco()*vg.getQuantidade())+(vg2.getPreco()*vg2.getQuantidade())+(vg3.getPreco()*vg3.getQuantidade());
+		new Loja().listarLivros(livros);
 		
-		for(k=0;k<m;k++) {
-			livros.get(k).calculoImposto();
-		}
-		for(k=0;k<m;k++) {
-			games.get(k).calculoImposto();
-		}
-		
-		System.out.println("-------------------------------------------------------------");
-		for(k=0;k<m;k++) {
-			System.out.println(games.get(k));
-		}
-		
-		int i;
-		int n = livros.size();
-		System.out.println("-------------------------------------------------------------");
-		for(i=0;i<n;i++) {
-			System.out.println(livros.get(i));
-		}
-		
-		System.out.println("-------------------------------------------------------------");
-		System.out.println("O patrimonio da loja encontra-se em: R$" + patrimonio);
+		new Loja().calculoPatrimonio(games, livros, lj);
 		
 	}
 
